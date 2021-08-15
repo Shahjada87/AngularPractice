@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <h2>Nasa mars  Rover Photos</h2>
+
+  <div class="card-group d-flex flex-column w-25">
+    <div class="card" *ngFor="let item of responseObject.photos">
+      <img [src]="item.img_src" height="200" class="card-img-top" alt="">
+      <div class="card-header">
+        <h2>Photo id: {{item.id}}</h2>
+        <p>Sol: {{item.sol}}</p>
+      </div>
+    </div>
+  </div>
+</div>

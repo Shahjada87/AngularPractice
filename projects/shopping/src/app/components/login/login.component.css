@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+   }
+   .box {
+    border:2px solid darkcyan;
+    border-radius: 10px;
+    padding: 20px;
+   }

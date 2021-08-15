@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="mt-2">
+    <h3>Bootstrap Input</h3>
+    <div class="w-25">
+      <label for="" class="form form-label">User Name</label>
+      <div>
+        <input type="text" class="form form-control" placeholder="Enter the fucking user name!!">
+      </div>
+    </div>
+  </div>
+  <div class="mt-2">
+    <h2>Material Input</h2>
+    <mat-form-field>
+      <mat-label>User Name</mat-label>
+      <input type="text" matInput placeholder="Enter User Name" name="UserName" ngModel #UserName="ngModel" id="">
+    </mat-form-field>
+    <div>
+      Hello {{UserName.value}}
+    </div>
+  </div>
+
+
+  <div class="mt-5">
+    <h3>Material Date Picker</h3>
+    <button class="btn btn-secondary">
+      <mat-icon>home</mat-icon> Calls
+    </button>
+    <br>
+
+    <br>
+    <mat-form-field>
+      <mat-label>Select Date</mat-label>
+      <input type="text" matInput name="" id="" [matDatepicker]="picker">
+      <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div class="mt mt-5 mb-5" style="background-color: khaki;">
+    <h3>Lazy Loading</h3>
+    <cdk-virtual-scroll-viewport itemSize="100" style="width: 500px; height: 1000px; padding: 10px;">
+      <div class="card " *cdkVirtualFor="let item of data">
+        <img [src]="item.Pic" alt="" class="card-img-top" height="300" width="450">
+        <div class="card card-body">
+          <h3>{{item.Name}}</h3>
+        </div>
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </div>
+
+</div>

@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <h3>Select Styles</h3>
+    <div class="mt-3">
+      <ul class="list-unstyled form form-check form-switch">
+        <li>
+          <input type="checkbox" name="TextBackground1" ngModel #TextBackground1="ngModel"
+            class="form form-check-input"> Background Style
+        </li>
+        <li>
+          <input type="checkbox" name="TextBorder2" ngModel #TextBorder2="ngModel" class="form form-check-input"> Border
+          Style
+        </li>
+        <li>
+          <input type="checkbox" name="TextStyle3" ngModel #TextStyle3="ngModel" class="form form-check-input"> Text
+          Style
+        </li>
+      </ul>
+      {{TextBackground1.value}}
+      <h1
+        [ngClass]="{'text-style':TextStyle3.value, 'border-style':TextBorder2.value, 'background-style':TextBackground1.value}">
+        Shahjada</h1>
+    </div>
+    <div class="mt-3">
+      <input type="text" [ngClass]="{'invalid-style':UserName.invalid, 'valid-style':UserName.valid}" name="UserName"
+        required minlength="4" pattern="[A-Z]{4,10}" ngModel #UserName="ngModel" class="form form-control">
+      <div class="text-danger">
+        <span *ngIf="UserName.errors?.required">Name Required</span>
+        <span *ngIf="UserName.errors?.minlength">Name too short(should be more than 4 letters)</span>
+        <span *ngIf="UserName.errors?.pattern">Pattern of name is wrong! (Try between 4 to 10 letters and block letters only.)</span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row mt-5">
+    <h1 [ngStyle]="StyleObject">Shahjada</h1>
+  </div>
+  <div class="mt-3">
+    <fieldset>
+      <legend>
+        Choose Effects
+      </legend>
+      <dl class="w-25">
+        <dt>Background Color</dt>
+        <br>
+        <dd>
+          <select (change)="OnBackgroundChnage()" [(ngModel)]="BackgroundColor" class="form form-select">
+            <option  value="yellow">Yellow</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+          </select>
+        </dd>
+        <dd>Alignment</dd>
+        <dd>
+          <input (change)="OnBackgroundChnage()" type="radio" [(ngModel)]="Alignment" name="align" value="center"> Center
+          <input (change)="OnBackgroundChnage()" type="radio" [(ngModel)]="Alignment" name="align" value="right"> Right
+          <input (change)="OnBackgroundChnage()" type="radio" [(ngModel)]="Alignment" name="align" value="left"> left
+        </dd>
+      </dl>
+    </fieldset>
+  </div>
+  <div class="mt-3">
+    <h1 [ngStyle]="StyleObject">
+      Shahjada
+    </h1>
+  </div>
+<div class="mt-3">
+  <h1 [ngStyle]="GetEffects()">
+    Shahjada
+  </h1>
+</div>
+</div>

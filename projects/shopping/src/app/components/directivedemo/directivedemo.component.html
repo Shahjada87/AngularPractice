@@ -1,0 +1,47 @@
+<div>
+  <h2>Product Details</h2>
+  <div class="row">
+    <div class="container">
+      <div class="btn-toolbar bg-danger">
+        <div class="btn-group btn-group-vertical">
+          <button name="details" (click)="Show($event)" class="btn btn-danger btn-block">Details</button>
+          <button name="preview" (click)="Show($event)" class="btn btn-danger btn-block">Preview</button>
+          <button name="description" (click)="Show($event)" class="btn btn-danger btn-block">Description</button>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div>
+        <button (click)="PreviousClick()" class="btn btn-danger">
+          <span class="fa fa-backward"></span>
+        </button>
+        <button (click)="NextClick()" class="btn btn-danger">
+          <span class="fa fa-forward"></span>
+        </button>
+      </div>
+      <div [ngSwitch]="selectedView">
+        <div class="card" *ngSwitchCase="'details'">
+          <div class="card-header">
+            <h2>{{product.Name}}</h2>
+          </div>
+          <div class="card-body">
+            <h4>{{product.Price}}</h4>
+          </div>
+          <div class="card-footer">
+            <h3>Status: {{(product.InStock==true?"Available":"Out of Stock")}}</h3>
+          </div>
+        </div>
+        <div class="card" *ngSwitchCase="'preview'">
+          <div class="card-body">
+            <img [src]="product.Photo" width="200" height="200">
+          </div>
+        </div>
+        <div class="card" *ngSwitchCase="'description'">
+          <div class="card-body">
+            <p>{{product.Description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

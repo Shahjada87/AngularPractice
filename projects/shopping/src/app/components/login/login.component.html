@@ -1,0 +1,22 @@
+<div class="container-fluid justify-content-center align-items-center d-flex" style="height: 400px;">
+  <div class="box">
+    <h3>{{title}}</h3>
+    <dl>
+      <dt>User Name</dt>
+      <dd class="input-group">
+        <span class="bi bi-person input-group-text"></span>
+        <input type="text" class="form-control">
+      </dd>
+      <dt>Password</dt>
+      <dd class="input-group">
+        <span class="bi bi-key-fill input-group-text"></span>
+        <input type="password" class="form-control">
+      </dd>
+      <dt> Verify Captcha<button class="bi bi-arrow-repeat btn bg-transparent" (click)="onRefreshClick()"></button></dt>
+      <dd>{{code}}</dd>
+    </dl>
+    <div class="d-grid">
+      <button class="btn btn-primary">Login</button>
+    </div>
+  </div>
+</div>

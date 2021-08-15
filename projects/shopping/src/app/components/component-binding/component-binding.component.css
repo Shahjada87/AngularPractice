@@ -1,0 +1,22 @@
+.border-style{
+  border: 2px solid brown;
+  padding: 10px;
+}
+
+.text-style{
+  text-align: center;
+  color: blueviolet;
+}
+
+.background-style{
+  background-color:chartreuse ;
+}
+.invalid-style{
+  border: 2px solid red;
+  box-shadow: 2px 3px 2px red;
+}
+
+.valid-style{
+  border: 2px solid greenyellow;
+  box-shadow: 2px 3px 2px greenyellow;
+}

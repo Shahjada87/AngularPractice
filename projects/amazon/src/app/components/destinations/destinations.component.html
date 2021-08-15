@@ -1,0 +1,15 @@
+<div class="d-flex flex-row flex-wrap">
+  <div *ngFor="let item of universities">
+    <div class="card-header">
+      {{item.name}}
+    </div>
+    <div class="card-body">
+      {{item.alpha_two_code}}
+      {{item.country}}
+      {{item.web_pages}}
+    </div>
+    <div class="card-footer">
+      {{item.domains}}
+    </div>
+  </div>
+</div>

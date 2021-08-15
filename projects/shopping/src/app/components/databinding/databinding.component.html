@@ -1,0 +1,48 @@
+<h2 class="text-danger text-center">Two Way Binding</h2>
+<div class="mt-3 container">
+  <div class="row">
+    <div class="col-3">
+      <div class="form-group">
+        <label>Name</label>
+        <div>
+          <input type="text" [(ngModel)]="Name" class="formcontrol">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Price</label>
+        <div>
+          <input type="text" [(ngModel)]="Price" class="formcontrol">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Shipped To</label>
+        <div>
+          <select [(ngModel)]="ShippedTo" class="form-control">
+            <option>Delhi</option>
+            <option>Hyd</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>In Stock</label>
+        <div class="form-check form-switch">
+          <input [(ngModel)]="InStock" type="checkbox" class="form-check-input"> Yes
+        </div>
+      </div>
+    </div>
+    <div class="col-9">
+      <h4>Product Details</h4>
+      <dl class="row">
+        <dt class="col-sm-3">Name</dt>
+        <dd class="col-sm-9">{{Name}}</dd>
+        <dt class="col-sm-3">Price</dt>
+        <dd class="col-sm-9">{{Price}}</dd>
+        <dt class="col-sm-3">Shipped To</dt>
+        <dd class="col-sm-9">{{ShippedTo}}</dd>
+        <dt class="col-sm-3">Stock</dt>
+        <dd class="col-sm-9">{{(InStock)==true?"Available":"Out of Stock"}}
+        </dd>
+      </dl>
+    </div>
+  </div>
+</div>

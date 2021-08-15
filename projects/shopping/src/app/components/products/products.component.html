@@ -1,0 +1,23 @@
+<div class="mt-3">
+  <header class="text-center text-primary">
+    <h1>Travel Shopping</h1>
+  </header>
+  <section>
+    <div class="row">
+      <div class="col-3">
+        <app-filter></app-filter>
+      </div>
+      <div class="col-3 container">
+        <div class="flex flex-wrap ">
+          <div class="card" *ngFor="let item of data">
+            <img [src]="item.Pic" alt="" class="card-img-top" width="350" height="200">
+            <div class="card-header">
+              <h3>{{item.Name}}</h3>
+              <p>{{item.Price}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

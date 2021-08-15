@@ -1,0 +1,228 @@
+<div class="home container-fluid">
+  <h2>Catalog</h2>
+  <div class="card-group">
+    <div class="card mt-4" *ngFor="let item of place">
+      <img class="mt-2" [src]="item.Pic" alt="img" height="200" width="300">
+      <div class="card-headear">
+        <h4>{{item.Name}}</h4>
+        <h4>{{item.Price}}</h4>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-info">
+          <span class="bi bi-cart4">
+            Add to cart
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <h2 class="mt-lg-5">Places</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Preview</th>
+        <th>Actions</th>
+        <th>Show</th>
+        <th>Index</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of place; let i = index; let o = odd; let e = even " [class.odd]="o" [class.even]="e">
+        <td>{{item.Name}}</td>
+        <td> {{item.Price}} </td>
+        <td>
+          <img [src]="item.Pic" alt="img" width="150" height="100">
+        </td>
+        <td>
+          <button (click)="RemoveClick(i)" class="btn btn-danger"><span class="bi bi-trash"></span></button>
+        </td>
+        <td>
+          <button class="btn btn-success"><span class="bi bi-eye-fill"></span></button>
+        </td>
+        <td>
+          {{i}} 
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="mt-3">
+    <button class="btn btn-primary" (click)="AddClick()">Add Record</button>
+  </div>
+  <div class="mt-3">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Preview</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of place; trackBy:TrackChange ; let i = index; let o = odd; let e = even " [class.odd]="o"
+          [class.even]="e">
+          <td>{{item.Name}}</td>
+          <td>{{item.Price}}</td>
+          <td>
+            <img [src]="item.Pic" alt="img" width="150" height="100">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="card card-group mt-5">
+    <div class="card mt-5" *ngFor="let item of place">
+      <img [src]="item.Pic" alt="img" height="100" width="150">
+      <div class="card-header ">
+        <h3>{{item.Name}}</h3>
+        <p>{{item.Price}}</p>
+      </div>
+      <div class="card-footer btn-group text-center">
+        <button class="btn btn-success" (click)="LikesClick(item)">
+          <span class="bi bi-hand-thumbs-up"></span> {{item.Likes}} Likes
+        </button>
+        <button class="btn btn-danger" (click)="DisLikesClick(item)">
+          <span class="bi bi-hand-thumbs-down"></span> {{item.Dislikes}} Dislikes
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col">
+    <div class="col-2">
+      <h3>Select Category</h3>
+      <select class="form form-select" [(ngModel)]= "SelectedCategory">
+        <option *ngFor="let destinations of travelPlaces" [ngValue]= 'destinations'>
+          {{destinations}}
+        </option>
+      </select>
+    </div>
+    <div class="col-3">
+      <h3>Choose Categories</h3>
+      <p>*You can choose more than one</p>
+      <ul>
+        <li><input type="checkbox" name="category" [checked]='SelectedCategory' (change)= "travelPlaces" [(ngModel)]= "SelectedCategory"> All </li>
+        <li><input type="checkbox" name="category" [checked]='SelectedCategory' (change)= "travelPlaces" [(ngModel)]= "SelectedCategory"> Middle-East </li>
+        <li><input type="checkbox" name="category" [checked]='SelectedCategory' (change)= "travelPlaces" [(ngModel)]= "SelectedCategory"> America </li>
+        <li><input type="checkbox" name="category" [checked]='SelectedCategory' (change)= "travelPlaces" [(ngModel)]= "SelectedCategory"> Asia </li>
+      </ul>
+    </div>
+    <div class="card-group mt-3 flex-row w-100 d-flex col-10">
+      <ng-container *ngFor="let item of place">
+        <div class="card m-3" *ngIf="SelectedCategory=='All' || SelectedCategory == item.Category">
+          <img class="mt-2" [src]="item.Pic" alt="img" height="150" width="225">
+          <div class="card-headear">
+            <h3>{{item.Name}}</h3>
+            <h4>{{item.Price}}</h4>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<!--categories part-->
+
+<div class="home container-fluid mt-5">
+  <div class="row">
+    <div class="col">
+      <h3>Categories</h3>
+      <ol>
+        <li *ngFor="let item of categories">
+          {{item}}
+        </li>
+      </ol>
+    </div>
+    <div class="col">
+      <h4>Select Category</h4>
+      <select class="form-select">
+        <option *ngFor="let category of categories" value="category">
+          {{category}}
+        </option>
+      </select>
+    </div>
+
+
+
+    <div class="col">
+      <h4>Categories</h4>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Select category</th>
+          </tr>
+        </thead>
+
+        <body>
+          <tr *ngFor="let item of categories">
+            <td class="categories">{{item}}</td>
+          </tr>
+        </body>
+      </table>
+    </div>
+
+    <div class="col">
+      <h4>Select cartegory</h4>
+      <ul class="list-unstyled">
+        <li *ngFor="let item of categories">
+          <input type="checkbox" value="item"> {{item}}
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h3>Menu</h3>
+      <ol>
+        <li *ngFor="let item of menu">
+          {{item.Category}}
+          <ul>
+            <li *ngFor="let product of item.Products">
+              {{product}}
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="col">
+    <h3>Menu</h3>
+    <select class="form-select">
+      <optgroup *ngFor="let item of menu" [label]="item.Products">
+        <option *ngFor="let product of item.Products">
+          {{product}}
+        </option>
+      </optgroup>
+    </select>
+  </div>
+
+  <div class="col mb-5">
+    <h3>Menu</h3>
+    <details *ngFor="let item of menu">
+      <summary>{{item.Category}}</summary>
+      <ul>
+        <li *ngFor="let product of item.Products">
+          {{product}}
+        </li>
+      </ul>
+    </details>
+  </div>
+</div>

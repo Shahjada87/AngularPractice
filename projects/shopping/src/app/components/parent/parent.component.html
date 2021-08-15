@@ -1,0 +1,11 @@
+<div class="container" style="height: 1000px; background-color: yellow;border-radius: 7px;">
+  <h2>Parent Component</h2>
+  <p>{{Messages}}</p>
+  <dl>
+    <dt>Name</dt>
+    <dd>{{Mobile.Name}}</dd>
+    <dt>Price</dt>
+    <dd>{{Mobile.Price}}</dd>
+  </dl>
+  <app-child [Message]="ParentMessage" [width]="ParentMessage2" (SendObjectToParent)="CollectObject($event)" (SendMEssageToParent)="CollectMessage($event)"></app-child>
+</div>

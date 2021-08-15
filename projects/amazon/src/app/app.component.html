@@ -1,0 +1,38 @@
+<div class="container">
+
+    <header style="background-color: yellow; color: rgb(255, 118, 214); text-align: center;" class="p-3">
+        <h2><span class="bi bi-globe2"></span> Travel The Globe <span class="bi bi-globe2"></span></h2>
+    </header>
+
+    <div class="row" style="margin-top: 50px;">
+        <div class="col-3">
+            <ul class="list-unstyled">
+                <li>
+                    <a routerLink="home" class="btn btn-info btn-block"><span class="fa fahome"></span>Home</a>
+                </li>
+                <li>
+                    <a routerLink="middleeast" class="btn btn-info btn-block"><span class="fa fatv"></span>Middle East</a>
+                </li>
+                <li>
+                    <a routerLink="asia" class="btn btn-info btn-block"><span class="fa fa-shoeprints"></span>Asia</a>
+                </li>
+                <li>
+                    <a routerLink="america" class="btn btn-info btn-block"><span class="fa fa-shoeprints"></span>America</a>
+                </li>
+                <li>
+                    <a routerLink="jewellery" class="btn btn-info btn-block "><span class="fa fa-shoeprints"></span>Jewellery</a>
+                </li>
+                <li>
+                    <a routerLink="details" class="btn btn-info btn-block "><span class="fa fa-shoeprints"></span>Details</a>
+                </li>
+                <li>
+                    <a routerLink="destinations" class="btn btn-info btn-block "><span class="fa fa-shoeprints"></span>Show All
+            Destinations</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-9 overflow-scroll" style="height: 650px;">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
